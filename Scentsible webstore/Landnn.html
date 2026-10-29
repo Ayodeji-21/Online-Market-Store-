@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scensible | Luxury & Designer Perfumes in Nigeria</title>
+<meta name="description" content="Scensible - Shop 100% authentic designer and luxury-inspired perfumes. Long lasting fragrances for Him, Her & Unisex. Nationwide delivery in Nigeria.">
+
+<style>
+  :root{
+    --black: #000;
+    --champagne: #d6bba8;
+    --white: #fff;
+    --light-gray: #f7f7f7;
+  }
+  *{margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
+  body{color: var(--black); background: var(--white); line-height: 1.6;}
+
+  /* NAVBAR */
+  nav{
+    background: var(--black);
+    color: var(--champagne);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  nav .logo{font-size: 26px; font-weight: 800; letter-spacing: 3px;}
+  nav ul{display: flex; list-style: none; gap: 25px;}
+  nav ul li a{color: var(--champagne); text-decoration: none; font-weight: 500;}
+  nav ul li a:hover{color: var(--white);}
+
+  /* HERO */
+  .hero{
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=1170') center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 130px 20px;
+  }
+  .hero h1{font-size: 48px; margin-bottom: 15px; letter-spacing: 2px;}
+  .hero p{font-size: 18px; color: var(--champagne); margin-bottom: 30px;}
+  .btn{
+    background: var(--champagne);
+    color: var(--black);
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .btn:hover{background: var(--white);}
+
+  /* SECTION */
+  .section{padding: 70px 6%;}
+  .section-title{text-align: center; font-size: 32px; margin-bottom: 40px;}
+
+  /* FEATURES */
+  .features{display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;}
+  .feature{
+    border: 1px solid var(--champagne);
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .feature h3{margin: 10px 0;}
+
+  /* PRODUCTS */
+  .products{background: var(--light-gray);}
+  .product-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px;}
+  .product{
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .product img{width: 100%; height: 280px; object-fit: cover;}
+  .product-info{padding: 20px;}
+  .product-info h3{margin-bottom: 8px;}
+  .price{font-size: 20px; font-weight: bold; margin-bottom: 12px;}
+  .btn-outline{
+    border: 2px solid var(--black);
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .btn-outline:hover{background: var(--black); color: var(--champagne);}
+
+  /* ABOUT */
+  .about{display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;}
+  .about img{width: 100%; border-radius: 12px;}
+
+  /* TESTIMONIALS */
+  .testimonials{background: var(--champagne);}
+  .testimonial{
+    background: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  /* CTA */
+  .cta{background: var(--black); color: var(--champagne); text-align: center; padding: 80px 20px;}
+  .cta h2{font-size: 36px; margin-bottom: 15px;}
+
+  /* FOOTER */
+  footer{background: #111; color: var(--champagne); padding: 50px 6% 20px;}
+  .footer-grid{display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;}
+  footer h4{color: var(--white); margin-bottom: 15px;}
+  footer a{color: var(--champagne); text-decoration: none; display: block; margin: 8px 0;}
+  footer a:hover{color: var(--white);}
+  .copy{text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #333;}
+
+  /* WHATSAPP FLOAT */
+  .whatsapp{
+    position: fixed; bottom: 20px; right: 20px;
+    background: #25D366; color: white; font-size: 26px;
+    padding: 14px 16px; border-radius: 50%; text-decoration: none;
+  }
+
+  @media(max-width: 768px){
+    nav ul{display: none;}
+    .hero h1{font-size: 32px;}
+    .about{grid-template-columns: 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">SCENSIBLE</div>
+  <ul>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Smell Confident. Feel Unforgettable.</h1>
+  <p>100% Authentic Designer & Luxury-Inspired Fragrances</p>
+  <a href="#shop" class="btn">Shop Collection</a>
+</section>
+
+<!-- FEATURES -->
+<section class="section">
+  <h2 class="section-title">Why Shop With Scensible?</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>✅ 100% Authentic</h3>
+      <p>Every perfume is verified. No fakes, guaranteed.</p>
+    </div>
+    <div class="feature">
+      <h3>🚚 Fast Delivery</h3>
+      <p>Nationwide delivery. Payment on delivery in Port Harcourt.</p>
+    </div>
+    <div class="feature">
+      <h3>💎 Affordable Luxury</h3>
+      <p>Premium scents at prices that make sense.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products" id="shop">
+  <h2 class="section-title">Bestsellers</h2>
+  <div class="product-grid">
+    
+    <div class="product">
+      <img src="https://via.placeholder.com/400x400.png?text=Dior+Sauvage" alt="Dior Sauvage">
+      <div class="product-info">
+        <h3>Dior Sauvage EDT 100ml</h3>
+        <p>Fresh • Masculine • Confident</p>
+        <p class="price">₦65,000</p>
+        <a href="order.html" class="btn-outline">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/400x400.png?text=YSL+Black+Opium" alt="YSL Black Opium">
+      <div class="product-info">
+        <h3>YSL Black Opium 90ml</h3>
+        <p>Sweet • Seductive • Feminine</p>
+        <p class="price">₦70,000</p>
+        <a href="order.html" class="btn-outline">Order Now</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/400x400.png?text=Creed+Aventus" alt="Creed Aventus">
+      <div class="product-info">
+        <h3>Creed Aventus 100ml</h3>
+        <p>Bold • Powerful • Signature</p>
+        <p class="price">₦85,000</p>
+        <a href="order.html" class="btn-outline">Order Now</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div>
+    <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=1170" alt="Perfume Bottles">
+  </div>
+  <div>
+    <h2>About Scensible</h2>
+    <p>At Scensible, we believe your scent is your signature. We carefully curate premium designer and luxury-inspired perfumes to match your style, mood, and personality.</p>
+    <p>Based in Port Harcourt with nationwide delivery, our mission is simple: make luxury accessible, authentic, and unforgettable.</p>
+    <br>
+    <a href="https://wa.me/2348136491277" class="btn">Chat With Us</a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials">
+  <h2 class="section-title">What Customers Say</h2>
+  <div class="features">
+    <div class="testimonial">
+      <p>"Fast delivery and the scent lasts all day. I keep getting compliments!"</p>
+      <h4>- Ada, Lagos</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Finally a store I can trust for original perfumes. Scensible is the best."</p>
+      <h4>- Chinedu, PH</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Beautiful packaging and amazing customer service. Highly recommend."</p>
+      <h4>- Fatima, Abuja</h4>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>Find Your Signature Scent Today</h2>
+  <p>Shop now or let us recommend the perfect fragrance for you</p>
+  <br>
+  <a href="https://wa.me/2348136491277" class="btn">Order on WhatsApp</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>SCENSIBLE</h4>
+      <p>Luxury & Designer Fragrances. Smell Confident. Feel Unforgettable.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#shop">For Him</a>
+      <a href="#shop">For Her</a>
+      <a href="#shop">Unisex</a>
+      <a href="#shop">Gift Sets</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Delivery Info</a>
+      <a href="#">Returns</a>
+      <a href="#">FAQs</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="tel:08136491277">08136491277</a>
+      <a href="mailto:scentsibleperfumestore@gmail.com">scentsibleperfumestore@gmail.com</a>
+      <a href="#">Port Harcourt, Nigeria</a>
+    </div>
+  </div>
+  <div class="copy">
+    <p>© 2026 Scensible Perfume Store. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/2348136491277" class="whatsapp" target="_blank">💬</a>
+
+</body>
+</html>

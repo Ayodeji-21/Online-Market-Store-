@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>order/form</title>
+    <link rel="stylesheet" type="text/css" href="web.css">
+    <script src="script.js"></script>
+</head>
+<header class="page-header">
+<div class="main-nav-div"> 
+    
+      </div>
+<div class="sub-nav-div">
+  <img src="logo 1.png" class="icons">
+      <a href="#Home" class="header-link">Home</a>
+        <a href="#Products" class="header-link">Products</a>
+        <a href="#About" class="header-link">About</a>
+        <a href="#Contact" class="header-link">Contact</a>
+    </div>
+    </div>
+<body>
+    <h1>SCENSIBLE</h1>
+  <p>Luxury & Designer Fragrances | Smell Confident. Feel Unforgettable.</p>
+</header>
+
+<div class="container" id="orderForm">
+  
+  <!-- PRODUCT SECTION -->
+  <div class="product"  id="Product">
+    <img src="https://via.placeholder.com/300x300.png?text=Perfume+Bottle" alt="Dior Sauvage">
+    <h2>Dior Sauvage EDT 100ml</h2>
+    <p class="price">₦65,000</p>
+    <p class="desc">Fresh, masculine, and long lasting. Perfect for daily wear and special occasions. Notes of Bergamot, Pepper, and Ambroxan.</p>
+    
+    <div class="qty-controls">
+      <label style="color: var(--champagne);">Quantity:</label>
+      <button type="button" onclick="changeQty(-1)">-</button>
+      <span id="qty">1</span>
+      <button type="button" onclick="changeQty(1)">+</button>
+    </div>
+  </div>
+
+  <!-- ORDER FORM SECTION -->
+  <div class="order-form">
+    <h3>Place Your Order</h3>
+    <form action="https://formsubmit.co/scentsibleperfumestore@gmail.com" method="POST">
+      
+      <!-- Hidden fields for formsubmit -->
+      <input type="hidden" name="_subject" value="New Order from Scensible Website">
+      <input type="hidden" name="_template" value="table" id="productOrderedInput">
+      <input type="hidden" name="_captcha" value="false" id="productPriceInput">
+
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="Full Name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="Phone Number" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="Email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Product</label>
+        <input type="text" name="Product" value="" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Quantity</label>
+        <input type="number" name="Quantity" id="quantityInput" value="1" min="1" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Delivery Address</label>
+        <textarea name="Delivery Address" rows="3" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Payment Method</label>
+        <select name="Payment Method" required>
+          <option value="">Select</option>
+          <option value="Bank Transfer">Bank Transfer</option>
+          <option value="Payment on Delivery - PH Only">Payment on Delivery - PH Only</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Note</label>
+        <textarea name="Note" rows="2" placeholder="Gift wrapping, preferred delivery time etc"></textarea>
+      </div>
+
+      <button type="submit" class="order-btn">Send Order to Scensible</button>
+      <p class="note">Your order details will be sent directly to our email. We’ll contact you within 30 minutes.</p>
+    </form>
+  </div>
+
+</div>
+
+
+  
+    <small class="copyright">© 2026 Scensible Perfume Store | Ondo | 08136491277</small>
+</html>

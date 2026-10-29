@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scensible - Product to Order Form</title>
+<style>
+  :root{ --black:#000; --champagne:#d6bba8; --white:#fff; }
+  body{font-family: 'Segoe UI', sans-serif; background:#f5f5f5; padding:30px;}
+  
+  /* PRODUCT CARD */
+  .product-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:25px; max-width:1200px; margin:auto;}
+  .product-card{background:var(--white); border-radius:12px; padding:15px; text-align:center; border:1px solid var(--champagne);}
+  .product-card img{width:100%; height:250px; object-fit:cover; border-radius:8px;}
+  .product-card h3{margin:10px 0;}
+  .price{font-weight:bold; font-size:20px;}
+  .order-btn{background:var(--black); color:var(--champagne); border:none; padding:12px; width:100%; border-radius:8px; cursor:pointer; font-weight:bold;}
+  .order-btn:hover{background:var(--champagne); color:var(--black);}
+
+  /* ORDER FORM */
+  .order-section{background:var(--white); max-width:700px; margin:50px auto; padding:30px; border-radius:12px; border:2px solid var(--champagne); display:none;}
+  .order-section.active{display:block;}
+  .selected-product{display:flex; gap:15px; background:var(--champagne); padding:15px; border-radius:8px; margin-bottom:20px;}
+  .selected-product img{width:80px; height:80px; object-fit:cover; border-radius:6px;}
+  .form-group{margin-bottom:15px;}
+  .form-group input, .form-group textarea{width:100%; padding:12px; border:1px solid var(--black); border-radius:8px;}
+  .btn-submit{background:var(--black); color:var(--champagne); padding:14px; width:100%; border:none; border-radius:8px; font-weight:bold; cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center;">Shop Scensible</h2>
+
+<!-- 1. PRODUCT GRID -->
+<div class="product-grid">
+  
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x300.png?text=Dior+Sauvage" alt="Dior Sauvage" class="product-img">
+    <h3 class="product-name">Dior Sauvage EDT 100ml</h3>
+    <p class="product-price">65000</p>
+    <p class="product-notes">Fresh • Bergamot • Ambroxan</p>
+    <button class="order-btn" onclick="addToOrder(this)">Order Now</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/300x300.png?text=YSL+Black+Opium" alt="YSL Black Opium" class="product-img">
+    <h3 class="product-name">YSL Black Opium 90ml</h3>
+    <p class="product-price">70000</p>
+    <p class="product-notes">Sweet • Coffee • Vanilla</p>
+    <button class="order-btn" onclick="addToOrder(this)">Order Now</button>
+  </div>
+
+</div>
+
+<!-- 2. ORDER FORM -->
+<div class="order-section" id="orderForm">
+  <h3>Complete Your Order</h3>
+  
+  <!-- This is where product details will appear -->
+  <div class="selected-product" id="selectedProduct">
+    <!-- JS will fill this -->
+  </div>
+
+  <form action="https://formsubmit.co/scentsibleperfumestore@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Order from Scensible Website">
+    <input type="hidden" name="Product Ordered" id="productOrderedInput">
+    <input type="hidden" name="Product Price" id="productPriceInput">
+    <input type="hidden" name="Product Image" id="productImageInput">
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" name="Full Name" required>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" name="Phone Number" required>
+    </div>
+    <div class="form-group">
+      <label>Delivery Address</label>
+      <textarea name="Delivery Address" rows="3" required></textarea>
+    </div>
+    
+    <button type="submit" class="btn-submit">Place Order</button>
+  </form>
+</div>
+
+<script>
+  // GLOBAL VARIABLES TO STORE PRODUCT DATA
+  let currentProduct = {};
+
+  // FUNCTION 1: addToOrder(button)
+  // This runs when user clicks "Order Now"
+  function addToOrder(button){
+    // 1. "button" = the button that was clicked
+    // 2. ".closest('.product-card')" = Go up and find the parent product card
+    const productCard = button.closest('.product-card');
+
+    // 3. ".querySelector()" = Find elements inside that card and get their text
+    const name = productCard.querySelector('.product-name').innerText;
+    const price = productCard.querySelector('.product-price').innerText;
+    const notes = productCard.querySelector('.product-notes').innerText;
+    const image = productCard.querySelector('.product-img').src; // .src gets the image link
+
+    // 4. Save all data to our global object
+    currentProduct = { name, price, notes, image };
+
+    // 5. Call next function to display it
+    displayProductInForm();
+  }
+
+  // FUNCTION 2: displayProductInForm()
+  // This fills the order form with the product details
+  function displayProductInForm(){
+    const formSection = document.getElementById('orderForm');
+    const productDiv = document.getElementById('selectedProduct');
+
+    // 1. Make the order form visible
+    formSection.classList.add('active'); 
+    // .classList.add('active') adds the CSS class that sets display:block
+
+    // 2. Fill the HTML inside the "selectedProduct" div
+    productDiv.innerHTML = `
+      <img src="${currentProduct.image}" alt="${currentProduct.name}">
+      <div>
+        <h4>${currentProduct.name}</h4>
+        <p>${currentProduct.notes}</p>
+        <p style="font-weight:bold;">₦${Number(currentProduct.price).toLocaleString()}</p>
+      </div>
+    `;
+    // ${} = Template literals. This injects JS variables into HTML
+
+    // 3. Fill the HIDDEN form inputs so they are sent to email
+    document.getElementById('productOrderedInput').value = `${currentProduct.name} - ${currentProduct.notes}`;
+    document.getElementById('productPriceInput').value = `₦${Number(currentProduct.price).toLocaleString()}`;
+    document.getElementById('productImageInput').value = currentProduct.image;
+
+    // 4. Scroll down to the form so user sees it
+    formSection.scrollIntoView({ behavior: 'smooth' });
+    // .scrollIntoView() = JS function to auto scroll page
+  }
+</script>
+
+</body>
+</html>
